@@ -4,21 +4,23 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.lang.Math;
 
+// 클래스 없이 기본적인 연산 수행하는 계산기
+
 public class Calculator01 {
 
-    private double num1, num2;
+    private int num1, num2;
     private String operator;
 
-    public double getNum1() {
+    public int getNum1() {
         return num1;
     }
-    public void setNum1(double num1) {
+    public void setNum1(int num1) {
         this.num1 = num1;
     }
-    public double getNum2() {
+    public int getNum2() {
         return num2;
     }
-    public void setNum2(double num2) {
+    public void setNum2(int num2) {
         this.num2 = num2;
     }
     public String getOperator() {
@@ -28,7 +30,7 @@ public class Calculator01 {
         this.operator = operator;
     }
 
-    public double calculate(double num1, double num2, String operator) {
+    public double calculate(int num1, int num2, String operator) {
 
         switch (operator) {
             case "+":
@@ -69,7 +71,7 @@ public class Calculator01 {
             System.out.println("첫 번째 숫자를 입력하세요");
                 String num1 = sc.next();
                 if(Pattern.matches(NUMBER_REG, num1)){
-                    cal.setNum1(Double.parseDouble(num1));
+                    cal.setNum1(Integer.parseInt(num1));
                 }else {
                     System.out.println("경고!) 0을 포함한 양의 정수를 입력하십시오");
                     continue;
@@ -77,7 +79,7 @@ public class Calculator01 {
             System.out.println("두 번째 숫자를 입력하세요");
                 String num2 = sc.next();
                 if(Pattern.matches(NUMBER_REG, num2)){
-                    cal.setNum2(Double.parseDouble(num2));
+                    cal.setNum2(Integer.parseInt(num2));
                 }else {
                     System.out.println("경고!) 0을 포함한 양의 정수를 입력하십시오");
                     continue;
