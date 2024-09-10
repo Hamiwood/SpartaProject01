@@ -11,8 +11,8 @@ public class App03 {
         ArithmeticCalculator.OperatorType type = null;
         Scanner sc = new Scanner(System.in);
 
-        final String NUMBER_REG = "^[0-9]*$";//^[0-9]*$
-        final String NUMBER_REG2 = "^[0-9]+(.)[0-9]{1,9}$";//^[0-9]+(.)?[0-9]{1,9}$
+        final String NUMBER_REG = "^[+-]?[0-9]*$";//^[0-9]*$
+        final String NUMBER_REG2 = "^[+-]?[0-9]+(.)[0-9]{1,9}$";//^[0-9]+(.)?[0-9]{1,9}$
         String sel = "";
 
         while (!sel.equals("exit")) {
