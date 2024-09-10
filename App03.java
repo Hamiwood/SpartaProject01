@@ -11,15 +11,15 @@ public class App03 {
         ArithmeticCalculator.OperatorType type = null;
         Scanner sc = new Scanner(System.in);
 
-        final String NUMBER_REG = "^[+-]?[0-9]*$";//^[0-9]*$
-        final String NUMBER_REG2 = "^[+-]?[0-9]+(.)[0-9]{1,9}$";//^[0-9]+(.)?[0-9]{1,9}$
+        final String NUMBER_REG = "^[+-]?[0-9]*$";//정수 정규표현식
+        final String NUMBER_REG2 = "^[+-]?[0-9]+(.)[0-9]{1,9}$";//실수 정규표현식
         String sel = "";
 
         while (!sel.equals("exit")) {
+
             System.out.println("연산자를 입력하세요");
             System.out.println("사칙연산(+ - * /), 나머지(%), 제곱(^)");
             String operator = sc.next();
-
             if (operator.equals("+")) {
                 type = ArithmeticCalculator.OperatorType.ADD;
             } else if (operator.equals("-")) {
@@ -50,6 +50,7 @@ public class App03 {
                 System.out.println("경고!) 숫자의 입력이 잘못되었습니다");
                 continue;
             }
+
             System.out.println("두 번째 숫자를 입력하세요");
             String num2 = sc.next();
             if (Pattern.matches(NUMBER_REG, num2)) {
@@ -63,6 +64,7 @@ public class App03 {
                 System.out.println("경고!) 숫자의 입력이 잘못되었습니다");
                 continue;
             }
+
             if ((operator.equals("/") || operator.equals("%")) && cal.getNum2().equals(0)) {
                 System.out.println("경고!) 0으로는 나눌 수 없습니다");
             } else {
@@ -106,7 +108,7 @@ public class App03 {
                         System.out.println("입력하신 숫자를 기준으로 큰 결과값을 도출한 로그를 출력합니다");
                         double standard = sc.nextDouble();
                         System.out.println("-----입력하신 '" + standard + "'보다 결과 값이 큰 로그입니다-----");
-                        cal.interResult2(standard);
+                        cal.interResult(standard);
                         System.out.println();
                         continue;
                     case "exit":

@@ -13,7 +13,7 @@ public class App02 {
         final String NUMBER_REG = "^[0-9]*$";
         String sel = "";
 
-        while(!sel.equals("exit")) {
+        while (!sel.equals("exit")) {
             System.out.println("연산자를 입력하세요");
             System.out.println("사칙연산(+ - * /), 나머지(%), 제곱(^)");
             String operator = sc.next();
@@ -23,6 +23,7 @@ public class App02 {
                 System.out.println("경고!) 주어진 연산자(+ - * / % ^)를 입력하십시오");
                 continue;
             }
+
             cal.setOperator(operator);
             System.out.println("첫 번째 숫자를 입력하세요");
             String num1 = sc.next();
@@ -32,6 +33,7 @@ public class App02 {
                 System.out.println("경고!) 0을 포함한 양의 정수를 입력하십시오");
                 continue;
             }
+
             System.out.println("두 번째 숫자를 입력하세요");
             String num2 = sc.next();
             if (Pattern.matches(NUMBER_REG, num2)) {
@@ -40,10 +42,11 @@ public class App02 {
                 System.out.println("경고!) 0을 포함한 양의 정수를 입력하십시오");
                 continue;
             }
+
             if ((cal.getOperator().equals("/") || cal.getOperator().equals("%")) && cal.getNum2() == 0) {
                 System.out.println("경고!) 0으로는 나눌 수 없습니다");
             } else {
-                System.out.println("결과 값은 '" + Math.round(cal.calculate(cal.getNum1(), cal.getNum2(), cal.getOperator())) + "'입니다");
+                System.out.println("결과 값은 '" + cal.calculate(cal.getNum1(), cal.getNum2(), cal.getOperator()) + "'입니다");
                 System.out.println();
                 System.out.println("-----현재까지의 계산 로그-----");
                 cal.showArr();
@@ -62,12 +65,12 @@ public class App02 {
                         System.out.println();
                         System.out.println("삭제하실 로그의 번호를 입력하십시오");
                         String input = sc.next();
-                        if(Pattern.matches(NUMBER_REG, input) && (cal.getSave().size() > Integer.parseInt(input))) {
+                        if (Pattern.matches(NUMBER_REG, input) && (cal.getSave().size() > Integer.parseInt(input))) {
                             cal.removeSave(Integer.parseInt(input));
                             System.out.println("-----계산 로그-----");
                             cal.showArr();
                             continue;
-                        }else {
+                        } else {
                             System.out.println("경고! 입력하신 것이 숫자가 아니거나, 삭제가 가능한 번호가 아닙니다.");
                             System.out.println();
                             continue;

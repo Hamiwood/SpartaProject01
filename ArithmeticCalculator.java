@@ -10,6 +10,7 @@ public class ArithmeticCalculator<T extends Number> {
     private T num1;
     private T num2;
 
+    //getter setter
     public T getNum1() {
         return num1;
     }
@@ -30,33 +31,41 @@ public class ArithmeticCalculator<T extends Number> {
         return save;
     }
 
-    //저장
-    public void addSave(String num1, String num2, String operator, String result) {
-        save.add(new ArrayList<>(Arrays.asList(num1, num2, operator, result)));
-    }
-
-    //삭제
-    public void removeSave(int index) {
-        save.remove(index);
-    }
-
-    //모두 삭제
-    public void clearSave() {
-        save.clear();
-    }
-
-    //stream, 람다 활용
-    public void interResult(double standard) {
+    //연산 로그 모두 읽어오기
+    public void showArr() {
         if (save != null && !save.isEmpty()) {
             for (int i = 0; i < save.size(); i++) {
-                if (Double.parseDouble(save.get(i).get(3)) > standard) {
-                    System.out.println(save.get(i).get(0) + save.get(i).get(2) + save.get(i).get(1) + " = " + save.get(i).get(3));
-                }
+                System.out.println("[" + i + "] " + save.get(i).get(0) + save.get(i).get(2) + save.get(i).get(1) + " = " + save.get(i).get(3));
             }
         }
     }
 
-    public void interResult2(double standard) {
+    //연산 로그 저장
+    public void addSave(String num1, String num2, String operator, String result) {
+        save.add(new ArrayList<>(Arrays.asList(num1, num2, operator, result)));
+    }
+
+    //입력받은 번호의 연산로그 삭제
+    public void removeSave(int index) {
+        save.remove(index);
+    }
+
+    //연산로그 모두 삭제
+    public void clearSave() {
+        save.clear();
+    }
+
+    //    public void interResult(double standard) {
+    //        if (save != null && !save.isEmpty()) {
+    //            for (int i = 0; i < save.size(); i++) {
+    //                if (Double.parseDouble(save.get(i).get(3)) > standard) {
+    //                    System.out.println(save.get(i).get(0) + save.get(i).get(2) + save.get(i).get(1) + " = " + save.get(i).get(3));
+    //                }
+    //            }
+    //        }
+    //    }
+    //입력 값보다 작은 결과값 도출
+    public void interResult(double standard) {
         if (save != null && !save.isEmpty()) {
             save.stream()
                     .filter(s -> Double.parseDouble(s.get(3)) > standard)
@@ -64,6 +73,7 @@ public class ArithmeticCalculator<T extends Number> {
         }
     }
 
+    //연산 메서드
     public T calculate(T num1, T num2, OperatorType operator) {
 
         String n1 = num1.toString();
@@ -100,7 +110,7 @@ public class ArithmeticCalculator<T extends Number> {
                     addSave(n1, n2, op, result.toString());
                     return (T) result;
                 case SQUARE:
-                    result = Integer.valueOf((int) Math.pow(num1.intValue(), num2.intValue()));
+                    result = (int) Math.pow(num1.intValue(), num2.intValue());
                     op = "^";
                     addSave(n1, n2, op, result.toString());
                     return (T) result;
@@ -141,19 +151,10 @@ public class ArithmeticCalculator<T extends Number> {
         return null;
     }
 
-    public void showArr() {
-        if (save != null && !save.isEmpty()) {
-            for (int i = 0; i < save.size(); i++) {
-                System.out.println("[" + i + "] " + save.get(i).get(0) + save.get(i).get(2) + save.get(i).get(1) + " = " + save.get(i).get(3));
-            }
-        }
-    }
-
-
+    //연산자 enum
     public enum OperatorType {
         ADD, SUBTRACT, MULTIPLY, DIVIDE, REMAINDER, SQUARE
     }
-
 
     //해결한 문제
     //제네릭 사용 방안 (S T U)
