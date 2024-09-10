@@ -3,6 +3,7 @@ package Project01.SpartaProject01;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// lv2 클래스 사용하여 계산기 만들기
 public class Calculator02 {
     private int num1, num2;
     private String operator;
@@ -41,6 +42,11 @@ public class Calculator02 {
     //삭제
     public void removeSave(int index) {
         save.remove(index);
+    }
+
+    //모두 삭제
+    public void clearSave() {
+        save.clear();
     }
 
     public double calculate(int num1, int num2, String operator) {
@@ -88,4 +94,5 @@ public class Calculator02 {
 
     //해결한 문제
     //arr에 값이 담기지 않는 문제
+    //remove >> clear로 넘어가 전체 데이터가 삭제되는 문제
 }

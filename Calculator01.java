@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.lang.Math;
 
-// 클래스 없이 기본적인 연산 수행하는 계산기
+// Lv1 클래스 없이 기본적인 연산 수행하는 계산기
 
 public class Calculator01 {
 
