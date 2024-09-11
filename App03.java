@@ -38,30 +38,40 @@ public class App03 {
             }
 
             System.out.println("첫 번째 숫자를 입력하세요");
-            String num1 = sc.next();
-            if (Pattern.matches(NUMBER_REG, num1)) {
-                cal.setNum1(Integer.parseInt(num1));
-            } else if (Pattern.matches(NUMBER_REG2, num1)) {
-                if (operator.equals("^")) {
-                    System.out.println("경고!) 제곱은 실수를 사용할 수 없습니다");
+            try {
+                String num1 = sc.next();
+                if (Pattern.matches(NUMBER_REG, num1)) {
+                    cal.setNum1(Integer.parseInt(num1));
+                } else if (Pattern.matches(NUMBER_REG2, num1)) {
+                    if (operator.equals("^")) {
+                        System.out.println("경고!) 제곱은 실수를 사용할 수 없습니다");
+                        continue;
+                    } else cal.setNum1(Double.parseDouble(num1));
+                } else {
+                    System.out.println("경고!) 숫자의 입력이 잘못되었습니다");
                     continue;
-                } else cal.setNum1(Double.parseDouble(num1));
-            } else {
-                System.out.println("경고!) 숫자의 입력이 잘못되었습니다");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("경고!) 수용할 수 있는 입력값을 넘어섰습니다");
                 continue;
             }
 
             System.out.println("두 번째 숫자를 입력하세요");
-            String num2 = sc.next();
-            if (Pattern.matches(NUMBER_REG, num2)) {
-                cal.setNum2(Integer.parseInt(num2));
-            } else if (Pattern.matches(NUMBER_REG2, num2)) {
-                if (operator.equals("^")) {
-                    System.out.println("경고!) 제곱은 실수를 사용할 수 없습니다");
+            try {
+                String num2 = sc.next();
+                if (Pattern.matches(NUMBER_REG, num2)) {
+                    cal.setNum2(Integer.parseInt(num2));
+                } else if (Pattern.matches(NUMBER_REG2, num2)) {
+                    if (operator.equals("^")) {
+                        System.out.println("경고!) 제곱은 실수를 사용할 수 없습니다");
+                        continue;
+                    } else cal.setNum2(Double.parseDouble(num2));
+                } else {
+                    System.out.println("경고!) 숫자의 입력이 잘못되었습니다");
                     continue;
-                } else cal.setNum2(Double.parseDouble(num2));
-            } else {
-                System.out.println("경고!) 숫자의 입력이 잘못되었습니다");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("경고!) 수용할 수 있는 입력값을 넘어섰습니다");
                 continue;
             }
 
