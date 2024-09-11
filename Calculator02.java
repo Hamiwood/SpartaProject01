@@ -101,8 +101,4 @@ public class Calculator02 {
                 return 0;
         }
     }
-
-    //해결한 문제
-    //arr에 값이 담기지 않는 문제
-    //remove >> clear로 넘어가 전체 데이터가 삭제되는 문제
 }

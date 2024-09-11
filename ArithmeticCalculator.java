@@ -55,15 +55,6 @@ public class ArithmeticCalculator<T extends Number> {
         save.clear();
     }
 
-    //    public void interResult(double standard) {
-    //        if (save != null && !save.isEmpty()) {
-    //            for (int i = 0; i < save.size(); i++) {
-    //                if (Double.parseDouble(save.get(i).get(3)) > standard) {
-    //                    System.out.println(save.get(i).get(0) + save.get(i).get(2) + save.get(i).get(1) + " = " + save.get(i).get(3));
-    //                }
-    //            }
-    //        }
-    //    }
     //입력 값보다 작은 결과값 도출
     public void interResult(double standard) {
         if (save != null && !save.isEmpty()) {
@@ -155,14 +146,6 @@ public class ArithmeticCalculator<T extends Number> {
     public enum OperatorType {
         ADD, SUBTRACT, MULTIPLY, DIVIDE, REMAINDER, SQUARE
     }
-
-    //해결한 문제
-    //제네릭 사용 방안 (S T U)
-    //result > 제네릭 문제
-    //사칙연산 enum으로 변환하는 문제
-    //실수와 정수를 모두 input으로 집어넣는 문제
-    //list에 값이 int, double값이 들어가지 않는 문제(제네릭 때문)
-    //정규표현식이 제대로 작동되지 않는 문제
 }
 
 
